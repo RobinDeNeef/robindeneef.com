@@ -22,11 +22,11 @@
           <span class="sr-only">Toggle navigation</span>
           <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
-        <a class="navbar-brand hovereffect" href="#">R:DN</a>
+        <a class="navbar-brand hovereffect" href="#home">R:DN</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="hovereffect"><a href="#">Home</a></li>
+          <li class="hovereffect"><a href="#home">Home</a></li>
           <li class="hovereffect"><a href="#portfolio">Portfolio</a></li>
           <li class="hovereffect"><a href="#about">About</a></li>
           <li class="hovereffect"><a href="#contact">Contact</a></li>
@@ -34,14 +34,15 @@
       </div><!--/.nav-collapse -->
     </div>
   </nav>
-  <header>
+  <header id="home">
     <div class="container main">
       <div class="showcase">
         <h1>Robin De Neef</h1>
         <h2>Web Developer</h2>
-        <a href="#"><span></span></a>
+        <a href="#portfolio"><span></span></a>
       </div>
-    </div></header>
+    </div>
+  </header>
     <hr class="divider">
     <section id="portfolio">
       <div class="container">
@@ -131,19 +132,19 @@
                   <form action="https://formspree.io/contact@robindeneef.me" method="POST">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-user-o fa-fw" aria-hidden="true"></i></span>
-                      <input class="form-control" type="text" placeholder="Name">
+                      <input class="form-control" type="text" placeholder="Name" name="email-name">
                     </div>
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" name="_replyto" aria-hidden="true"></i></span>
-                      <input class="form-control" type="text" placeholder="Email address">
+                      <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+                      <input class="form-control" type="text" placeholder="Email address" name="_replyto">
                     </div>
                     <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-fw" name="_subject" aria-hidden="true"></i></span>
-                      <input class="form-control" type="text" placeholder="Subject">
+                      <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i></span>
+                      <input class="form-control" type="text" placeholder="Subject" name="_subject">
                     </div>
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-comment-o fa-fw" aria-hidden="true"></i></span>
-                      <textarea class="form-control" type="text" placeholder="Message"></textarea>
+                      <textarea class="form-control" type="text" placeholder="Message" name="message"></textarea>
                     </div>
                     <input type="text" name="_gotcha" style="display:none" />
                     <input class="btn btn-default" type="submit" value="Send">
