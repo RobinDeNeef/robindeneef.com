@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import Image from "next/image"
 import profile from "../public/profile.png"
 
@@ -8,14 +9,11 @@ const Hero = () => {
             <div className="lg:space-x-5 lg:flex lg:flex-row item-center lg:-mx-4 flex flex-col-reverse text-center lg:text-left lg:mt-6">
                 <div className="lg:px-4 lg:mt-8 ">
                     <h1 className="text-2xl font-bold text-gray-900 lg:text-5xl dark:text-white">
-                        Hey there,
+                    Welcome! 👋 
                     </h1>
                     <div className="mt-6 text-gray-800 dark:text-white">
-                        <p className="mb-4">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a
-                            type specimen book.
+                        <p className="mb-4 text-xl">
+                            My name is Robin. By day, I’m a Fullstack Developer at ML6. By night, I like to tinker around with different technologies and build little projects of my own at <Link href="https://sobrinostudios.com">Sobrino Studios.</Link>
                         </p>
                     </div>
                 </div>

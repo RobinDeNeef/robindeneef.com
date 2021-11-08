@@ -1,0 +1,33 @@
+---
+title: "A New Home On The Internet"
+date: "2020-05-20T20:00:40+01:00"
+lastmod: "2020-04-20T20:0:40+01:00"
+draft: false
+author: "Robin"
+authorLink: "https://robindeneef.com"
+description: ""
+images: [""]
+
+tags: ["Thoughts", "Blogging"]
+categories: ["Thoughts"]
+featuredImage: ""
+---
+
+# A New Home On The Internet
+
+*The internet is full of information. In this day and age we have an overabundance of information. Why would I want to add even more to it? And why would anybody take notice into what I'm writing?*
+
+Previously I only had a website on [RobinDeNeef.com](http://robindeneef.com), it's a website I made while searching for a job and finding freelance clients. I didn't update it for more than a year. The projects that I hosted were taken offline or are not an accurate representation of my current skills anymore. So I felt that the website wasn't serving it's purpose no more. So it's time for a for something new!
+
+![My previous website](images/001-old-site.png)
+
+As most projects go, I had a few requirements:
+
+- I want it to be **my home on the internet**, a place where you can go to to find more information about me. An overview of the things I'm working on.
+- I need it to be **easily updateable** and more **reusability**. The previous website was build in plain HTML, CSS and JavaScript. Creating a new page would've meant making a new HTML page from scratch. On the new website I want to be able to easily post updates, organize my thoughts in a blogpost and easily showcase new portfolio work.
+- **Don't overthink it.** I have the bad habit of over analyzing most things. I want something that I can deploy quickly and edit or fine-tune it later.
+
+## The New Setup
+
+If you are reading this it means I have at least found a solution. For now I've settled upon using [Hugo](https://gohugo.io/), a static site generator written in Go. Using a static site generator ticks a lot of the boxes. I can easily update the website, just add a new file and the static site generator will rebuild the website with the new content. Hugo also support themes and templating which means I can easilty change the template and I don't have to update the whole website again. 
+Since I wanted to deploy something quickly I've decided to use an existing theme I've settled upon the [LoveIt theme](https://github.com/dillonzq/LoveIt) from [Dillon](https://dillonzq.com/). I like it's clean look and it has all the features I need: I can create custom pages, It has social links so I can link to my profiles on other websites, and it has great documentation. This will certainly do for now!

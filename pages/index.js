@@ -1,8 +1,16 @@
+import fs from "fs";
+import path from "path";
 import Head from 'next/head'
-import About from '../components/Hero'
+import matter from "gray-matter";
 import Hero from '../components/Hero'
+import Blog from '../components/Blog'
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 
-export default function Home() {
+
+
+export default function Home({posts}) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
@@ -10,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <About/>
+      <Hero/>
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
           Welcome to{' '}
@@ -67,6 +75,7 @@ export default function Home() {
             </p>
           </a>
         </div>
+        <Blog posts={posts}/>
       </main>
 
       <footer className="flex items-center justify-center w-full h-24 border-t">
@@ -79,3 +88,18 @@ export default function Home() {
     </div>
   )
 }
+
+export function getStaticProps() {
+  const posts = postFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+  return { props: { posts } };
+}
+  
