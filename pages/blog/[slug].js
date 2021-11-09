@@ -3,50 +3,46 @@ import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import dynamic from "next/dynamic";
 import Head from "next/head";
-import Link from "next/link";
 import path from "path";
 import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
+
+import BlogLink from "@/components/blog/BlogLink"
+import BlogH2 from "@/components/blog/BlogH2"
+import BlogParagraph from "@/components/blog/BlogParagraph"
+import BlogListItem from "@/components/blog/BlogListItem"
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
 // to handle import statements. Instead, you must include components in scope
 // here.
 const components = {
-  a: CustomLink,
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  TestComponent: dynamic(() => import("../../components/TestComponent")),
-  SecurityRecommendation: dynamic(() =>
-    import("../../components/SecurityRecommendation")
-  ),
-  Head,
+    a: BlogLink,
+    h2: BlogH2,
+    p: BlogParagraph,
+    li: BlogListItem,
+    Head
 };
 
 export default function PostPage({ source, frontMatter }) {
   return (
-    <Layout>
+      <>
       <Head>
         <title>Robin De Neef | {frontMatter.title}</title>
       </Head>
-      <Container>
-        <Header />
-        <>
-          <article className="mb-32 posts">
+      <div className="flex flex-col items-center min-h-screen py-2">
+        <article className="max-w-4xl sm:w-full">
             <div className="flex items-center mb-12">
-              <h1 className="text-6xl md:text-6xl lg:text-6+xl font-bold tracking-tighter leading-tight md:leading-none text-left ml-3">
-                {frontMatter.title}
-              </h1>
+                <h1 className="text-6xl md:text-6xl lg:text-6+xl font-bold tracking-tighter leading-tight md:leading-none text-left">
+                    {frontMatter.title}
+                </h1>
             </div>
             <main>
-              <MDXRemote {...source} components={components} />
+                <MDXRemote {...source} components={components} />
             </main>
-          </article>
-        </>
-      </Container>
-    </Layout>
+        </article>
+      </div>
+      </>
   );
 }
 
