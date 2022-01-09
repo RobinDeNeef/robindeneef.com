@@ -9,3 +9,12 @@ export const postFilePaths = fs
   .readdirSync(POSTS_PATH)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path));
+
+// POSTS_PATH is useful when you want to get the path to a specific file
+export const LOGS_PATH = path.join(process.cwd(), "_makerlog");
+
+// postFilePaths is the list of all mdx files inside the POSTS_PATH directory
+export const logFilePaths = fs
+  .readdirSync(LOGS_PATH)
+  // Only include md(x) files
+  .filter((path) => /\.mdx?$/.test(path));

@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
 import path from "path";
-import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
+import { logFilePaths, LOGS_PATH } from "../../utils/mdxUtils";
 
 import Footer from "@/components/Footer";
 import BlogLink from "@/components/blog/BlogLink";
@@ -26,7 +26,7 @@ const components = {
   Head,
 };
 
-export default function PostPage({ source, frontMatter }) {
+export default function LogPage({ source, frontMatter }) {
   return (
     <>
       <Head>
@@ -50,8 +50,8 @@ export default function PostPage({ source, frontMatter }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
+  const logFilePath = path.join(LOGS_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(logFilePath);
 
   const { content, data } = matter(source);
 
@@ -74,7 +74,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
+  const paths = logFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ""))
     // Map the path into the static paths object required by Next.js

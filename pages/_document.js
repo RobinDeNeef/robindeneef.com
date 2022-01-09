@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document(props) {
   return (
@@ -6,10 +6,15 @@ export default function Document(props) {
       <Head>
         <link href="/favicon.ico" rel="favicon" />
         {/* <link href="/static/favicons/site.webmanifest" rel="manifest" /> */}
+        <script
+          defer
+          data-domain="robindeneef.com"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
       </Head>
       <body className="bg-white dark:bg-gray-800 text-black dark:text-white">
         <Main />
-        <NextScript/>
+        <NextScript />
       </body>
     </Html>
   );

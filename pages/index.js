@@ -11,12 +11,7 @@ import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 export default function Home({ posts }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Robin De Neef</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex flex-col items-center w-full flex-1 px-20 text-center">
+      <main className="flex flex-col items-center w-full flex-1 text-center">
         <Hero />
         <PostList posts={posts} />
         {/* <ProjectGrid posts={posts} /> */}
