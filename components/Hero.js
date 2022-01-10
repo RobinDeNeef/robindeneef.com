@@ -15,10 +15,10 @@ const Hero = () => {
     <div className="container px-4 mx-auto lg:max-w-4xl">
       <div className="lg:space-x-5 lg:flex lg:flex-row item-center lg:-mx-4 flex flex-col-reverse text-center lg:text-left lg:mt-6">
         <div className="lg:px-4 lg:mt-8 ">
-          <h1 className="text-2xl font-bold text-gray-900 lg:text-5xl dark:text-white">
+          <h1 className="text-4xl font-bold text-gray-900 lg:text-5xl dark:text-white">
             Welcome! 👋
           </h1>
-          <div className="mt-6 text-gray-800 dark:text-white">
+          <div className="mt-4 text-gray-800 dark:text-white mx-2 lg:mx-0">
             <RoughNotationGroup show={true}>
               <p className="mb-4 text-xl">
                 My name is{" "}
@@ -34,8 +34,14 @@ const Hero = () => {
                   type="underline"
                   padding={[-2, 0, 0, 0]}
                   order="2"
+                  multiline
                 >
-                  <RoughNotation type="highlight" color="orange" order="4">
+                  <RoughNotation
+                    type="highlight"
+                    color="orange"
+                    order="4"
+                    multiline
+                  >
                     <span className={invertColor ? "text-black" : undefined}>
                       Fullstack Developer at ML6
                     </span>
@@ -47,12 +53,14 @@ const Hero = () => {
                   type="underline"
                   padding={[-2, 0, 0, 0]}
                   order="3"
+                  multiline
                 >
                   <RoughNotation
                     type="highlight"
                     color="yellow"
                     order="5"
                     getAnnotationObject={invertColorFunction}
+                    multiline
                   >
                     <Link
                       href="https://sobrinostudios.com"
@@ -69,7 +77,7 @@ const Hero = () => {
             </RoughNotationGroup>
           </div>
         </div>
-        <div className="flex-shrink-0 lg:mt-5 lg:px-4 mb-10">
+        <div className="flex lg:flex-shrink-0 justify-center lg:mt-5 lg:px-4 my-10 lg:my-1">
           <img
             src="/profile.png"
             alt="Profile"

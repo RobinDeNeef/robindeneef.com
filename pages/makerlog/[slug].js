@@ -32,10 +32,10 @@ export default function LogPage({ source, frontMatter }) {
       <Head>
         <title>Robin De Neef | {frontMatter.title}</title>
       </Head>
-      <div className="flex flex-col items-center min-h-screen py-2">
+      <div className="flex flex-col items-center min-h-screen py-2 px-5 lg:px-0">
         <article className="max-w-4xl sm:w-full lg:px-4">
-          <div className="flex items-center mb-12">
-            <h1 className="text-6xl md:text-6xl lg:text-6+xl font-bold tracking-tighter leading-tight md:leading-none text-left">
+          <div className="flex items-center mb-4 lg:mb-12">
+            <h1 className="text-4xl md:text-6xl lg:text-6+xl font-bold tracking-tighter leading-tight md:leading-none text-left">
               {frontMatter.title}
             </h1>
           </div>

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 function MakerLog({ logs }) {
   return (
-    <section className="flex flex-wrap max-w-4xl mt-6 sm:w-full">
-      <div className="-m-4 lg:px-4">
+    <section className="flex flex-wrap max-w-4xl lg:mt-6 sm:w-full">
+      <div className="lg:-m-4 lg:px-4">
         {logs.map((post, index) => (
           <Link
             as={`/makerlog/${post.filePath.replace(/\.mdx?$/, "")}`}
@@ -11,7 +11,9 @@ function MakerLog({ logs }) {
             key={"log-" + index}
           >
             <a className="w-full mb-1 text-left hover:text-blue-600 focus:text-blue-600">
-              <h3 className="text-2xl font-bold">{post.data.title}</h3>
+              <h3 className="text-xl lg:text-2xl font-bold">
+                {post.data.title}
+              </h3>
             </a>
           </Link>
         ))}
