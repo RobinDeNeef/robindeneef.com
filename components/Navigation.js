@@ -15,7 +15,18 @@ const Navigation = () => {
             🌱 Robin De Neef
           </a>
         </Link>
-        <ThemeSwitch />
+        <div className="flex items-center">
+          <Link href="/makerlog">
+            <a
+              className={
+                "text-lg font-bold	transition-colors text-gray-900 hover:text-sky-500 dark:text-white"
+              }
+            >
+              🛠️ Makerlog
+            </a>
+          </Link>
+          <ThemeSwitch />
+        </div>
       </div>
     </div>
   );
