@@ -26,11 +26,17 @@ const components = {
   Head,
 };
 
-export default function LogPage({ source, frontMatter }) {
+export default function LogPage({ slug, source, frontMatter }) {
   return (
     <>
       <Head>
         <title>Robin De Neef | {frontMatter.title}</title>
+        <meta name="description" content={frontMatter.description} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:description" content={frontMatter.description} />
+        <meta property="og:image" content={frontMatter.featuredImage} />
+        <meta property="og:url" content={"https://robindeneef.com/makerlog/" + slug} />
+        <meta property="og:type" content="article" />
       </Head>
       <div className="flex flex-col items-center min-h-screen py-2 px-5 lg:px-0">
         <article className="max-w-4xl sm:w-full lg:px-4">
@@ -67,6 +73,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
+      slug: params.slug,
       source: mdxSource,
       frontMatter: data,
     },
