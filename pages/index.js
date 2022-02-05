@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import Hero from "../components/Hero";
 import PostList from "../components/PostList";
 import ProjectGrid from "../components/ProjectGrid";
+import NewsLetterSignup from "@/components/NewsLetterSignup";
 import Footer from "../components/Footer";
 import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 
@@ -15,6 +16,9 @@ export default function Home({ posts }) {
         <Hero />
         <PostList posts={posts} />
         {/* <ProjectGrid posts={posts} /> */}
+        <div className="max-w-4xl mt-12 sm:w-full mb-12">
+          <NewsLetterSignup />
+        </div>
       </main>
       <Footer />
     </div>

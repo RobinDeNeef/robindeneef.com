@@ -9,6 +9,15 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Robin De Neef</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Hi! My name is Robin De Neef, I'm a developer and a maker."
+        />
+        <meta property="og:title" content="Robin De Neef" />
+        <meta
+          property="og:description"
+          content="Hi! My name is Robin De Neef, I'm a developer and a maker."
+        />
         <script
           defer
           data-domain="robindeneef.com"

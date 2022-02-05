@@ -7,6 +7,7 @@ import path from "path";
 import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
 
 import Footer from "@/components/Footer";
+import NewsLetterSignup from "@/components/NewsLetterSignup";
 import BlogLink from "@/components/blog/BlogLink";
 import BlogH2 from "@/components/blog/BlogH2";
 import BlogH3 from "@/components/blog/BlogH3";
@@ -31,6 +32,9 @@ export default function PostPage({ source, frontMatter }) {
     <>
       <Head>
         <title>Robin De Neef | {frontMatter.title}</title>
+        <meta name="description" content={frontMatter.description} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:description" content={frontMatter.description} />
       </Head>
       <div className="flex flex-col items-center min-h-screen py-2 px-5 lg:px-0">
         <article className="max-w-4xl sm:w-full lg:px-4">
@@ -42,6 +46,7 @@ export default function PostPage({ source, frontMatter }) {
           <main>
             <MDXRemote {...source} components={components} />
           </main>
+          <NewsLetterSignup />
         </article>
       </div>
       <Footer />

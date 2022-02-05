@@ -7,6 +7,7 @@ import path from "path";
 import { logFilePaths, LOGS_PATH } from "../../utils/mdxUtils";
 
 import Footer from "@/components/Footer";
+import NewsLetterSignup from "@/components/NewsLetterSignup";
 import BlogLink from "@/components/blog/BlogLink";
 import BlogH2 from "@/components/blog/BlogH2";
 import BlogH3 from "@/components/blog/BlogH3";
@@ -35,7 +36,10 @@ export default function LogPage({ slug, source, frontMatter }) {
         <meta property="og:title" content={frontMatter.title} />
         <meta property="og:description" content={frontMatter.description} />
         <meta property="og:image" content={frontMatter.featuredImage} />
-        <meta property="og:url" content={"https://robindeneef.com/makerlog/" + slug} />
+        <meta
+          property="og:url"
+          content={"https://robindeneef.com/makerlog/" + slug}
+        />
         <meta property="og:type" content="article" />
       </Head>
       <div className="flex flex-col items-center min-h-screen py-2 px-5 lg:px-0">
@@ -45,9 +49,12 @@ export default function LogPage({ slug, source, frontMatter }) {
               {frontMatter.title}
             </h1>
           </div>
-          <main>
+          <main className="mb-12">
             <MDXRemote {...source} components={components} />
           </main>
+          <div className="mb-12">
+            <NewsLetterSignup />
+          </div>
         </article>
       </div>
       <Footer />
