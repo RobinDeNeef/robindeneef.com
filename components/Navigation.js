@@ -9,7 +9,7 @@ const Navigation = () => {
         <Link href="/">
           <a
             className={
-              "text-2xl font-bold	transition-colors text-gray-900 hover:text-sky-500 dark:text-white"
+              "sm:text-2xl text-xl font-bold	transition-colors text-gray-900 hover:text-sky-500 dark:text-white"
             }
           >
             🌱 Robin De Neef
@@ -19,7 +19,7 @@ const Navigation = () => {
           <Link href="/makerlog">
             <a
               className={
-                "text-lg font-bold	transition-colors text-gray-900 hover:text-sky-500 dark:text-white"
+                "sm:text-lg text-md font-bold transition-colors text-gray-900 hover:text-sky-500 dark:text-white"
               }
             >
               🛠️ Makerlog

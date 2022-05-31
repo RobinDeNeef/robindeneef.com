@@ -2,22 +2,37 @@ import "tailwindcss/tailwind.css";
 import Head from "next/head";
 import Navigation from "../components/Navigation";
 import { ThemeProvider } from "next-themes";
+import { DefaultSeo } from "next-seo";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <DefaultSeo
+        defaultTitle="Robin De Neef"
+        description="Hi! My name is Robin De Neef, I'm a developer and a maker."
+        openGraph={{
+          type: "website",
+          locale: "en_EN",
+          url: "https://robindeneef.com/",
+          site_name: "Robin De Neef",
+          images: [
+            {
+              url: "/images/cover.png",
+              width: 1440,
+              height: 800,
+              alt: "Robin De Neef Portfolio",
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@RobinDeNeef",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
       <Head>
         <title>Robin De Neef</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Hi! My name is Robin De Neef, I'm a developer and a maker."
-        />
-        <meta property="og:title" content="Robin De Neef" />
-        <meta
-          property="og:description"
-          content="Hi! My name is Robin De Neef, I'm a developer and a maker."
-        />
         <script
           defer
           data-domain="robindeneef.com"
