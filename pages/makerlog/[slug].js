@@ -1,5 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
+import dynamic from "next/dynamic";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
@@ -13,6 +14,7 @@ import BlogH2 from "@/components/blog/BlogH2";
 import BlogH3 from "@/components/blog/BlogH3";
 import BlogParagraph from "@/components/blog/BlogParagraph";
 import BlogListItem from "@/components/blog/BlogListItem";
+import BlogMediaVideo from "@/components/blog/BlogMediaVideo";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -24,6 +26,7 @@ const components = {
   h3: BlogH3,
   p: BlogParagraph,
   li: BlogListItem,
+  Video: BlogMediaVideo,
   Head,
 };
 
