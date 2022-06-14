@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
           site_name: "Robin De Neef",
           images: [
             {
-              url: "/images/cover.png",
+              url: "https://robindeneef.com/images/cover.png",
               width: 1440,
               height: 800,
               alt: "Robin De Neef Portfolio",

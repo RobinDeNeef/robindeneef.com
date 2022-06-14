@@ -38,7 +38,7 @@ export default function LogPage({ slug, source, frontMatter }) {
         <meta name="description" content={frontMatter.description} />
         <meta property="og:title" content={frontMatter.title} />
         <meta property="og:description" content={frontMatter.description} />
-        <meta property="og:image" content={frontMatter.featuredImage} />
+        <meta property="og:image" content={"https://robindeneef.com/" + frontMatter.featuredImage} />
         <meta
           property="og:url"
           content={"https://robindeneef.com/makerlog/" + slug}
