@@ -12,7 +12,7 @@ function PostList({ posts }) {
   });
 
   return (
-    <section className="flex flex-wrap max-w-4xl mt-6 sm:w-full mx-5 lg:mx-0">
+    <section className="container px-4 mx-auto lg:max-w-4xl">
       <div className="w-full lg:px-4 lg:mt-8 ">
         <h2 className="w-full text-left mb-5 lg:mb-10 text-3xl font-bold text-gray-900 lg:text-4xl dark:text-white">
           📝 Writings

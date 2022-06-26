@@ -7,8 +7,8 @@ import { logFilePaths, LOGS_PATH } from "@/utils/mdxUtils";
 
 export default function Home({ logs }) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 mx-6 lg:mx-0">
-      <main className="flex flex-col w-full flex-1 max-w-4xl mt-6 sm:w-full lg:px-4">
+    <div className="flex flex-col h-screen">
+      <main className="container py-6 px-4 mx-auto lg:max-w-4xl mb-32">
         <h2 className="text-left mb-5 text-3xl lg:text-4xl font-bold text-gray-900 lg:text-4xl dark:text-white">
           🛠️ Maker Log
         </h2>
