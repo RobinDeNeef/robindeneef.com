@@ -1,0 +1,100 @@
+---
+title: 'Makerlog #13 - Setting Up a Home Server'
+date: '2023-02-12T20:00:40+01:00'
+lastmod: '2023-02-012T20:0:40+01:00'
+draft: false
+author: 'Robin De Neef'
+authorLink: 'https://robindeneef.com'
+description: ''
+images: ['']
+
+tags: ['logs']
+categories: ['logs']
+featuredImage: ''
+---
+
+On the first of February I started working fulltime for myself. Also on the first of February I broke my collarbone during a snowboard trip, great start!
+
+Since I currently can only type with one arm, I decided to play around with my homelab again. Copy pasting commands is easier than typing code at the moment.
+
+I've build some homeserver set ups before with an MQTT server, custom web apps, and lights or other IoT devices but this time I decided to build something more permanent. I'm finally getting solar panels on my roof I want to be able to use that as input to trigger other appliances so I can get the most out of them.
+
+I'm hosting everything on a Raspberry Pi 4 8GB. One thing to know about using Raspberry Pi's is that the SD card has a high chance of getting corrupted. To preserve the data I use a USB stick for persistent storage. But if the SD card fails, I want an easy way to set up the Pi again. The ideal moment to learn Ansible.
+
+[Ansible](https://www.ansible.com/) is an Infrastructure as Code tool that let's you group instructions for setting up infrastructure in "playbooks" and run these against your infrastructure to set everything up for you. It especially shines in bigger environments where you can create your playbook once and run it against a whole bunch of servers.
+
+For my homeserver however I want to automate the package updates and the docker-compose setup so that when the SD card would fail. I can grab a new one, throw an OS on it and execute the playbook to set everything up just as it was before.
+
+If you are interested in the playbook you can find it below. It updates the pi, installs docker & docker-compose, mounts a usb, copies to local docker compose file and executes it.
+
+The docker compose file currently has only 3 services in it. Portainer, Unify Controller and Pi Hole.
+
+```yml
+- name: Raspberry Pi - Homeserver Setup
+  hosts: raspberry_pi
+  tasks:
+    - name: Ping
+      ansible.builtin.ping: null
+
+    - name: apt-get update
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+      become: 'yes'
+
+    - name: Upgrade all apt packages
+      apt:
+        force_apt_get: 'yes'
+        upgrade: dist
+      become: 'yes'
+
+    - name: Install a list of packages
+      apt:
+        name: [libffi-dev, libssl-dev, python3, python3-pip]
+        update_cache: yes
+      become: yes
+
+    - name: get docker convenience script
+      shell: curl -fsSL https://get.docker.com -o get-docker.sh
+      args:
+        creates: ~/get-docker.sh
+
+    - name: install docker
+      shell: sh ~/get-docker.sh
+      args:
+        creates: /usr/bin/docker
+      become: yes
+
+    - name: make admin user execute docker commands
+      shell: usermod -aG docker pi
+      become: yes
+
+    - name: install docker-compose
+      shell: pip3 -v install docker-compose
+      args:
+        creates: /usr/local/bin/docker-compose
+
+    - name: Mount USB Storage
+      ansible.posix.mount:
+        path: /mnt/storage
+        src: /dev/sda
+        fstype: ext4
+        state: mounted
+      become: yes
+
+    - name: Creates directory
+      file:
+        path: ~/server
+        state: directory
+
+    - name: copy docker-compose.yaml to the target server
+      copy:
+        src: ../files/
+        dest: ~/server/docker-compose.yaml
+
+    - name: Run `docker-compose up` again
+      community.docker.docker_compose:
+        project_src: ~/server/
+        build: false
+      register: output
+```
