@@ -5,7 +5,7 @@ import Navigation from "@/components/Navigation";
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge'
 import { FiArrowRight } from 'react-icons/fi';
-import { SiTwitter } from 'react-icons/si';
+import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
 
 export default function Home() {
   return (
@@ -67,14 +67,14 @@ const HeaderBlock = ({ className, children, ...rest }) => {
 
 const SocialBlock = () => {
   return <>
-    <Block 
+  <Block 
       whileHover={{ scale: 1.1, rotate: "2.5deg" }}
-      className="col-span-6 bg-blue-500 md:col-span-3">
+      className="col-span-6 bg-zinc-800 md:col-span-3">
       <a
         href="#"
-        className="grid h-full place-content-center text-3XL text-white"
+        className="grid h-full place-content-center text-3xl text-white"
       >
-        <SiTwitter />
+        <SiGithub />
       </a>
     </Block>
     <Block 
@@ -82,9 +82,20 @@ const SocialBlock = () => {
       className="col-span-6 bg-blue-500 md:col-span-3">
       <a
         href="#"
-        className="grid h-full place-content-center text-3XL text-white"
+        className="grid h-full place-content-center text-3xl text-white"
       >
         <SiTwitter />
+      </a>
+    </Block>
+    
+    <Block 
+      whileHover={{ scale: 1.1, rotate: "2.5deg" }}
+      className="col-span-6 bg-blue-800 md:col-span-3">
+      <a
+        href="#"
+        className="grid h-full place-content-center text-3xl text-white"
+      >
+        <SiLinkedin />
       </a>
     </Block>
   </>
