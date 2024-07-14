@@ -1,4 +1,5 @@
 import Block from "./Block";
+import BlockWithIcon from "./BlockWithIcon";
 import { FiArrowRight } from 'react-icons/fi';
 import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
 
@@ -9,10 +10,25 @@ const BentoGrid = () => {
         <div className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4 lg:max-w-screen-lg">
           <HeaderBlock />
           <SocialBlock />
-          {/* <Block />
-          <Block />
-          <Block />
-          <Block className={"col-span-12"} /> */}
+          <BlockWithIcon 
+            title={"Newsletter"}
+            icon={"📨"}
+            tagLine={"Monthly musings in your mailbox"}
+            callToAction="Subscribe"
+          />
+          <BlockWithIcon 
+            title={"Projects"}
+            icon={"🚀"}
+            tagLine={"Check out my latest projects"}
+            callToAction="View Projects"
+          />
+          <BlockWithIcon 
+            title={"SobrinoStudios"}
+            icon={"💼"}
+            tagLine={"Data and AI Consultancy"}
+            callToAction="Let's work together!"
+          />
+          <Block className={"col-span-12"} />
         </div>
       </div>
     );
@@ -43,7 +59,7 @@ const BentoGrid = () => {
     return <>
     <Block 
         whileHover={{ scale: 1.1, rotate: "2.5deg" }}
-        className="col-span-6 bg-zinc-800 md:col-span-3">
+        className="col-span-3 md:col-span-6 bg-zinc-800 md:col-span-3">
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
@@ -53,7 +69,7 @@ const BentoGrid = () => {
       </Block>
       <Block 
         whileHover={{ scale: 1.1, rotate: "2.5deg" }}
-        className="col-span-6 bg-blue-500 md:col-span-3">
+        className="col-span-3 md:col-span-6 bg-blue-500 md:col-span-3">
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
@@ -64,12 +80,22 @@ const BentoGrid = () => {
       
       <Block 
         whileHover={{ scale: 1.1, rotate: "2.5deg" }}
-        className="col-span-6 bg-blue-800 md:col-span-3">
+        className="col-span-3 md:col-span-6 bg-blue-800 md:col-span-3">
         <a
           href="#"
           className="grid h-full place-content-center text-3xl text-white"
         >
           <SiLinkedin />
+        </a>
+      </Block>
+      <Block 
+        whileHover={{ scale: 1.1, rotate: "2.5deg" }}
+        className="col-span-3 md:col-span-6 bg-orange-200 md:col-span-3">
+        <a
+          href="#"
+          className="grid h-full place-content-center text-4xl text-black drop-shadow-md text-center"
+        >
+         👋 <span className="hidden md:block text-sm">Lets Talk!</span>
         </a>
       </Block>
     </>
