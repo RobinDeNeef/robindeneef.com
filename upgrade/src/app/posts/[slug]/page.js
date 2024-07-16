@@ -4,9 +4,7 @@ import { readFile, access } from "fs/promises";
 import { notFound } from "next/navigation";
 import { log } from "console";
 
-console.log(process.cwd())
 const POSTS_FOLDER = path.join(process.cwd(), "_posts");
-console.log(POSTS_FOLDER)
 
 async function readPostFile(slug) {
   console.log(slug)
@@ -39,5 +37,5 @@ export default async function PostPage({
 
   // do something with frontmatter, like set metadata or whatever
 
-  return <>{content}</>;
+  return <main className="prose">{content}</main>;
 }
