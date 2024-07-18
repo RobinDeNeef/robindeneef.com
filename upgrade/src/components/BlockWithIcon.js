@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
-
+import { FiArrowRight } from 'react-icons/fi';
 
 
 const CardWithIcon = ({ title, icon, tagLine, callToAction = "Check it out", url="#" }) => {
     return (
         <Link
             href={url}
-            className="group relative col-span-12 md:col-span-4 cursor-pointer overflow-hidden bg-white px-3 pt-5 pb-4 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl rounded-lg md:px-5 text-black" >
+            className="group relative col-span-12 md:col-span-4 cursor-pointer overflow-hidden bg-zinc-800 px-3 pt-5 pb-4 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl rounded-lg md:px-5 text-white" >
             <span className="absolute top-5 z-0 h-20 w-20 rounded-full bg-emerald-400 transition-all duration-300 group-hover:scale-[10]"></span>
             <div className="relative z-10 mx-auto max-w-md ">
                 <div className="flex">
@@ -22,13 +22,13 @@ const CardWithIcon = ({ title, icon, tagLine, callToAction = "Check it out", url
                     <div className="pl-4">
                         <h3 className="text-xl font-bold transition-all duration-300 group-hover:text-white">{title}</h3>
                         <div
-                            className="text-base leading-4 text-gray-600 transition-all duration-300 group-hover:text-white/90">
+                            className="text-base leading-4 text-gray-300 transition-all duration-300 group-hover:text-white/90">
                             <p>{tagLine}</p>
                         </div>
                         <div className="pt-2 text-base font-semibold leading-7">
                             <p>
-                                <span className="text-emerald-400 transition-all duration-300 group-hover:text-white">{callToAction}
-                                    &rarr;
+                                <span className="text-emerald-400 transition-all duration-300 group-hover:text-white flex items-center">
+                                    {callToAction} <FiArrowRight />
                                 </span>
                             </p>
                         </div>
