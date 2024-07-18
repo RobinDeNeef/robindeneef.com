@@ -3,6 +3,8 @@ import path from "path";
 import { readFile, access } from "fs/promises";
 import { notFound } from "next/navigation";
 import { log } from "console";
+import Navigation from "@/components/Navigation";
+
 
 const POSTS_FOLDER = path.join(process.cwd(), "_posts");
 
@@ -24,9 +26,7 @@ async function readPostFile(slug) {
 export default async function PostPage({
   params}){
   const markdown = await readPostFile(params.slug);
-    console.log("hello?")
   if (!markdown) {
-    console.log("Error")
     notFound();
   }
 
@@ -37,5 +37,12 @@ export default async function PostPage({
 
   // do something with frontmatter, like set metadata or whatever
 
-  return <main className="prose">{content}</main>;
+  return (
+  <>
+    <Navigation/>
+    <main className="mx-auto prose prose-invert lg:prose-lg max-w-prose ">
+      <h1>{frontmatter.title}</h1>
+      {content}
+    </main>
+  </>);
 }
