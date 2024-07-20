@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import BentoGrid from "@/components/BentoGrid";
+import Footer from "@/components/Footer";
 import { getLastNPosts } from "@/utils/mdxUtils";
 
 
@@ -14,6 +15,7 @@ export default function Home() {
       <main className="">
         <BentoGrid posts={posts}/>
       </main>
+      <Footer/>
     </div>
   );
 }
