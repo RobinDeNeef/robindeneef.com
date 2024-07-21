@@ -16,18 +16,27 @@ const BentoGrid = ({posts}) => {
           icon={"📨"}
           tagLine={"Monthly musings in your mailbox"}
           callToAction="Subscribe"
+          url="https://robindeneef.substack.com/"
         />
-        <BlockWithIcon
+        {/* <BlockWithIcon
           title={"Projects"}
           icon={"🚀"}
           tagLine={"Check out my latest projects"}
           callToAction="View Projects"
+        /> */}
+        <BlockWithIcon
+          title={"Fullstack Almanac"}
+          icon={"📖"}
+          tagLine={"A Tech Blog"}
+          callToAction="Check it out!"
+          url="https://fullstackalmanac.com"
         />
         <BlockWithIcon
           title={"SobrinoStudios"}
           icon={"💼"}
           tagLine={"Data and AI Consultancy"}
           callToAction="Let's work together!"
+          url="https://sobrinostudios.com"
         />
         <Block className={"col-span-12"}>
           <h2 className="text-2xl font-bold ml-5">Articles</h2>
@@ -60,7 +69,7 @@ const HeaderBlock = ({ className, children, ...rest }) => {
       <span className="text-zinc-400"> Data/AI Consultant</span>
     </h1>
     <a
-      href="#"
+      href="https://robindeneef.substack.com/"
       className="flex items-center gap-1 text-emerald-400 hover:underline"
     >
       Contact me <FiArrowRight />
@@ -75,7 +84,7 @@ const SocialBlock = () => {
       whileHover={{ scale: 1.1, rotate: "2.5deg" }}
       className="col-span-3 md:col-span-6 bg-zinc-800 md:col-span-3">
       <a
-        href="#"
+        href="https://github.com/RobinDeNeef"
         className="grid h-full place-content-center text-3xl text-white"
       >
         <SiGithub />
@@ -85,7 +94,7 @@ const SocialBlock = () => {
       whileHover={{ scale: 1.1, rotate: "2.5deg" }}
       className="col-span-3 md:col-span-6 bg-blue-500 md:col-span-3">
       <a
-        href="#"
+        href="https://x.com/RobinDeNeef"
         className="grid h-full place-content-center text-3xl text-white"
       >
         <SiTwitter />
@@ -96,7 +105,7 @@ const SocialBlock = () => {
       whileHover={{ scale: 1.1, rotate: "2.5deg" }}
       className="col-span-3 md:col-span-6 bg-blue-800 md:col-span-3">
       <a
-        href="#"
+        href="https://www.linkedin.com/in/robindeneef/"
         className="grid h-full place-content-center text-3xl text-white"
       >
         <SiLinkedin />
@@ -106,7 +115,7 @@ const SocialBlock = () => {
       whileHover={{ scale: 1.1, rotate: "2.5deg" }}
       className="col-span-3 md:col-span-6 bg-orange-200 md:col-span-3">
       <a
-        href="#"
+        href="https://robindeneef.substack.com/"
         className="grid h-full place-content-center text-3xl text-black drop-shadow-md text-center"
       >
         👋 

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-// import logo from "@/app/icon.png";
+import config from "@/utils/config";
 
 const Footer = () => {
+  console.log(config)
   return (
-    <footer className="bg-base-200 border-t border-base-content/10">
+    <footer className="bg-base-200">
       <div className="max-w-7xl mx-auto px-8 py-24">
         <div className=" flex lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 md:mr-6 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
@@ -13,21 +14,21 @@ const Footer = () => {
               aria-current="page"
               className="flex gap-2 justify-center md:justify-start items-center"
             >
-              {/* <Image
-                src={logo}
-                alt={`Robin De Neef`}
-                priority={true}
-                className="w-6 h-6"
-                width={24}
+              <Image
+                src="/robin-de-neef-initials.png"
+                alt={config.siteName}
+                // priority={true}
+                className="h-6"
+                width={42}
                 height={24}
-              /> */}
+              />
               <strong className="font-extrabold tracking-tight text-slate-900 md:text-lg">
-                Robin De Neef
+                {config.siteName}
               </strong>
             </Link>
 
             <p className="mt-3 text-sm text-slate-800">
-              Data/AI Consultant
+              {config.siteDescription}
             </p>
             <p className="mt-3 text-sm text-slate-600">
               Copyright © {new Date().getFullYear()} - All rights reserved
