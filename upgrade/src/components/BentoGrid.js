@@ -46,7 +46,7 @@ const BentoGrid = ({posts}) => {
             ))}
           </div>
           <a
-            href="/posts"
+            href="/blog"
             className="flex items-center gap-1 text-emerald-400 hover:underline"
           >
             Read more <FiArrowRight />

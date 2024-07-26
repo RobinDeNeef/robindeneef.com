@@ -3,7 +3,6 @@ import Image from "next/image";
 import config from "@/utils/config";
 
 const Footer = () => {
-  console.log(config)
   return (
     <footer className="bg-base-200">
       <div className="max-w-7xl mx-auto px-8 py-24">
@@ -44,12 +43,12 @@ const Footer = () => {
                 <Link href="/" target="_blank" className="link link-hover">
                   Home
                 </Link>
-                <Link href="/posts" className="link link-hover">
+                <Link href="/blog" className="link link-hover">
                   Articles
                 </Link>
-                <Link href="/projects" className="link link-hover">
+                {/* <Link href="/projects" className="link link-hover">
                   Projects
-                </Link>
+                </Link> */}
               </div>
             </div>
 

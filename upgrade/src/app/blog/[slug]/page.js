@@ -11,7 +11,6 @@ const POSTS_FOLDER = path.join(process.cwd(), "_posts");
 
 async function readPostFile(slug) {
   const filePath = path.resolve(path.join(POSTS_FOLDER, `${slug}.mdx`));
-  log(filePath)
   try {
     await access(filePath);
   } catch (err) {

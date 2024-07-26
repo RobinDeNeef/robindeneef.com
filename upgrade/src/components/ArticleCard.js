@@ -3,7 +3,7 @@ import React from 'react';
 
 const ArticleCard = ({post}) => {
     return (
-        <Link key={post.id} href={"/posts/" + post.id.replace(".mdx", "")}>
+        <Link key={post.id} href={"/blog/" + post.id.replace(".mdx", "")}>
         <article className="flex flex-col p-4 items-start justify-between rounded-lg h-full md:justify-normal hover:bg-slate-700">
                 <div className="relative w-full">
                   <img
