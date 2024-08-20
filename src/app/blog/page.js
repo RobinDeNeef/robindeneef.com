@@ -17,7 +17,7 @@ export default function Page() {
 
           <div className="mx-auto grid grid-cols-9 mt-4 mb-6 grid max-w-2xl gap-x-4 gap-y-6 lg:mx-0 lg:max-w-none">
               {posts.map((post) => (
-                <Block className="bg-zinc-800 hover:hover:bg-slate-700 p-2">
+                <Block key={post.id} className="bg-zinc-800 hover:hover:bg-slate-700 p-2">
                   <ArticleCard post={post} />
                 </Block>
               ))}

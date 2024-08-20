@@ -1,6 +1,6 @@
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
-import { readFile, access } from "fs/promises";
+import { readFile, access, readdir } from "fs/promises";
 import { notFound } from "next/navigation";
 import { log } from "console";
 import Navigation from "@/components/Navigation";
@@ -19,6 +19,12 @@ async function readPostFile(slug) {
 
   const fileContent = await readFile(filePath, { encoding: "utf8" });
   return fileContent;
+}
+
+export async function generateStaticParams() {
+  const files = await readdir(POSTS_FOLDER);
+  const slugs = files.map(file => file.replace(/\.mdx$/, ''));
+  return slugs.map(slug => ({ slug }));
 }
 
 export default async function PostPage({

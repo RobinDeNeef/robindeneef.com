@@ -4,8 +4,10 @@ import Block from "./Block";
 import BlockWithIcon from "./BlockWithIcon";
 import { FiArrowRight } from 'react-icons/fi';
 import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
-const BentoGrid = ({posts}) => {
+
+const BentoGrid = ({ posts }) => {
   return (
     <div className="min-h-screen px-4 md:py-12 text-zinc-50">
       <div className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4 lg:max-w-screen-lg">
@@ -57,7 +59,7 @@ const BentoGrid = ({posts}) => {
   );
 };
 
-const HeaderBlock = ({ className, children, ...rest }) => {
+const HeaderBlock1 = ({ className, children, ...rest }) => {
   return <Block className="col-span-12 row-span-2 md:col-span-6">
     <img
       src="https://api.dicebear.com/9.x/croodles/svg?seed=Robin-"
@@ -65,7 +67,7 @@ const HeaderBlock = ({ className, children, ...rest }) => {
       className="mb-4 size-16 rounded-full"
     />
     <h1 className="mb-12 text-4xl font-medium leading-thight">
-      Hi! I'm Robin De Neef.
+      Hi! I&apos;m Robin De Neef.
       <span className="text-zinc-400"> Data/AI Consultant</span>
     </h1>
     <a
@@ -75,6 +77,25 @@ const HeaderBlock = ({ className, children, ...rest }) => {
       Contact me <FiArrowRight />
     </a>
   </Block>
+}
+
+const HeaderBlock = ({ className, children, ...rest }) => {
+  return (
+    <Block 
+      className="p-0 border-none shadow col-span-12 row-span-2 md:col-span-6 bg-gradient-to-r from-emerald-500 to-emerald-400">
+      <motion.div 
+        initial={{ backgroundSize: '10rem' }}
+        whileHover={{ backgroundSize: '11rem' }}
+        className="h-full min-h-40 bg-profile-img bg-contain bg-no-repeat bg-right-bottom bg-[position:calc(100%+1rem)_calc(100%)] overflow-hidden"
+      >
+        <h1 className="m-5 mb-12 text-4xl font-medium leading-thight drop-shadow">
+          Robin <br/>
+          De Neef <br/>
+        <span className="text-zinc-800 text-xl drop-shadow-none"> Data/AI Consultant</span>
+    </h1>
+      </motion.div>
+    </Block>
+  )
 }
 
 
@@ -118,7 +139,7 @@ const SocialBlock = () => {
         href="https://robindeneef.substack.com/"
         className="grid h-full place-content-center text-3xl text-black drop-shadow-md text-center"
       >
-        👋 
+        👋
         {/* <span className="hidden md:block text-sm">Lets Talk!</span> */}
       </a>
     </Block>
