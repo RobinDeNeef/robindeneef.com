@@ -2,10 +2,8 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
 import { readFile, access, readdir } from "fs/promises";
 import { notFound } from "next/navigation";
-import { log } from "console";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
 
 const POSTS_FOLDER = path.join(process.cwd(), "_posts");
 
@@ -27,8 +25,27 @@ export async function generateStaticParams() {
   return slugs.map(slug => ({ slug }));
 }
 
-export default async function PostPage({
-  params}){
+export async function generateMetadata({ params }) {
+  const markdown = await readPostFile(params.slug);
+  if (!markdown) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested post could not be found.'
+    };
+  }
+
+  const { frontmatter } = await compileMDX({
+    source: markdown,
+    options: { parseFrontmatter: true },
+  });
+
+  return {
+    title: frontmatter.title,
+    description: frontmatter.description || 'A blog post on robindeneef.com',
+  };
+}
+
+export default async function PostPage({ params }) {
   const markdown = await readPostFile(params.slug);
   if (!markdown) {
     notFound();
@@ -39,15 +56,14 @@ export default async function PostPage({
     options: { parseFrontmatter: true },
   });
 
-  // do something with frontmatter, like set metadata or whatever
-
   return (
-  <div className="bg-zinc-50">
-    <Navigation/>
-    <main className="mx-auto prose lg:prose-lg max-w-prose ">
-      <h1>{frontmatter.title}</h1>
-      {content}
-    </main>
-    <Footer/>
-  </div>);
+    <div className="bg-zinc-50">
+      <Navigation />
+      <main className="mx-auto prose lg:prose-lg max-w-4xl md:py-8 px-4">
+        <h1>{frontmatter.title}</h1>
+        {content}
+      </main>
+      <Footer />
+    </div>
+  );
 }

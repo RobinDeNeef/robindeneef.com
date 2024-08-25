@@ -4,7 +4,7 @@ import config from "@/utils/config";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200">
+    <footer className="bg-base-200 mx-auto max-w-4xl">
       <div className="max-w-7xl mx-auto px-8 py-24">
         <div className=" flex lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 md:mr-6 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
