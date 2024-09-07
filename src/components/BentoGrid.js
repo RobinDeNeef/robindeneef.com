@@ -86,13 +86,33 @@ const HeaderBlock = ({ className, children, ...rest }) => {
       <motion.div 
         initial={{ backgroundSize: '10rem' }}
         whileHover={{ backgroundSize: '11rem' }}
-        className="h-full min-h-40 bg-profile-img bg-contain bg-no-repeat bg-right-bottom bg-[position:calc(100%+1rem)_calc(100%)] overflow-hidden"
+        className="h-full min-h-40 bg-profile-img bg-contain bg-no-repeat bg-right-bottom bg-[position:calc(100%+1rem)_calc(100%)] overflow-hidden flex items-center"
       >
-        <h1 className="m-5 mb-12 text-4xl font-medium leading-thight drop-shadow">
-          Robin <br/>
-          De Neef <br/>
-        <span className="text-zinc-800 text-xl drop-shadow-none"> Data/AI Consultant</span>
-    </h1>
+        <motion.h1 
+          className="ml-6 text-4xl font-medium leading-thight drop-shadow"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2
+              }
+            }
+          }}
+        >
+          <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>Robin</motion.span> <br/>
+          <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>De Neef</motion.span> <br/>
+          <motion.span 
+            className="text-zinc-800 text-xl drop-shadow-none"
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+          > 
+            Data/AI Consultant
+          </motion.span>
+        </motion.h1>
       </motion.div>
     </Block>
   )
