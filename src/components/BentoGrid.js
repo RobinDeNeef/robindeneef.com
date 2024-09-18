@@ -5,6 +5,7 @@ import BlockWithIcon from "./BlockWithIcon";
 import { FiArrowRight } from 'react-icons/fi';
 import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
 import { motion } from 'framer-motion';
+import { useState } from "react";
 
 
 const BentoGrid = ({ posts }) => {
@@ -80,6 +81,16 @@ const HeaderBlock1 = ({ className, children, ...rest }) => {
 }
 
 const HeaderBlock = ({ className, children, ...rest }) => {
+  const [egg, setEgg] = useState(0);
+
+  const eggc = () => {
+    setEgg(egg + 1);
+    console.log(egg)
+    if (egg === 20) {
+      document.querySelector('.bg-profile-img').classList.replace('bg-profile-img', 'bg-ralph-img');
+    }
+  }
+
   return (
     <Block 
       className="p-0 border-none shadow col-span-12 row-span-2 md:col-span-6 bg-gradient-to-r from-emerald-500 to-emerald-400">
@@ -87,6 +98,8 @@ const HeaderBlock = ({ className, children, ...rest }) => {
         initial={{ backgroundSize: '10rem' }}
         whileHover={{ backgroundSize: '11rem' }}
         className="h-full min-h-40 bg-profile-img bg-contain bg-no-repeat bg-right-bottom bg-[position:calc(100%+1rem)_calc(100%)] overflow-hidden flex items-center"
+        whileTap={{ backgroundSize: '9rem' }}
+        onClick={() => eggc()}
       >
         <motion.h1 
           className="ml-6 text-4xl font-medium leading-thight drop-shadow"
