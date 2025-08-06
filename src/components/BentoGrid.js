@@ -3,8 +3,8 @@ import ArticleCard from "./ArticleCard";
 import Block from "./Block";
 import BlockWithIcon from "./BlockWithIcon";
 import { FiArrowRight } from 'react-icons/fi';
-import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
-import { motion } from 'framer-motion';
+import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
+import { motion } from 'motion/react';
 import { useState } from "react";
 
 
@@ -151,7 +151,7 @@ const SocialBlock = () => {
         href="https://x.com/RobinDeNeef"
         className="grid h-full place-content-center text-3xl text-white"
       >
-        <SiTwitter />
+        <SiX />
       </a>
     </Block>
 
