@@ -10,8 +10,8 @@ export function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDirectory);
 
   const allPostsData = fileNames.map(fileName => {
-    // Remove ".md" from file name to get the id
-    const id = fileName.replace(/\.md$/, '');
+    // Remove ".mdx" from file name to get the id
+    const id = fileName.replace(/\.mdx$/, '');
 
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);
