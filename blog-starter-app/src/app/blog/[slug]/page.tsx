@@ -47,7 +47,6 @@ type Params = {
 export async function generateMetadata(props: Params): Promise<Metadata> {
   const params = await props.params;
   const post = getPostBySlug(params.slug);
-  console.log(post.title, post.featuredImage);
   if (!post) {
     return notFound();
   }
