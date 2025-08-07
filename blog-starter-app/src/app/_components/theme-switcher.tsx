@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "nextjs-blog-starter-theme";
-const modes = ["light", "dark", "system"] as const;
+const modes = ["light", "dark"] as const;
 type Mode = typeof modes[number];
 
 function getSystemTheme(): Mode {
@@ -14,6 +14,7 @@ function getSystemTheme(): Mode {
 
 export const ThemeSwitcher = () => {
   const [mode, setMode] = useState<Mode>("light");
+  const [mounted, setMounted] = useState(false);
 
   // On mount, set mode from localStorage or system
   useEffect(() => {
@@ -22,21 +23,23 @@ export const ThemeSwitcher = () => {
     setMode(initial);
     document.documentElement.classList.toggle("dark", initial === "dark");
     document.documentElement.setAttribute("data-mode", initial);
+    setMounted(true);
   }, []);
 
   // When mode changes, update localStorage and html class
   useEffect(() => {
+    if (!mounted) return;
     localStorage.setItem(STORAGE_KEY, mode);
     document.documentElement.classList.toggle("dark", mode === "dark");
     document.documentElement.setAttribute("data-mode", mode);
-  }, [mode]);
+  }, [mode, mounted]);
 
-  // Cycle through modes
+  // Toggle between light and dark
   const handleSwitch = () => {
-    const idx = modes.indexOf(mode);
-    const next = modes[(idx + 1) % modes.length];
-    setMode(next === "system" ? getSystemTheme() : next);
+    setMode(mode === "dark" ? "light" : "dark");
   };
+
+  if (!mounted) return null;
 
   return (
     <button onClick={handleSwitch} aria-label="Toggle theme">
