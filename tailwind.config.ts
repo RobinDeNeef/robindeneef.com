@@ -15,6 +15,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "profile-img": "url('/images/profile.png')",
         "ralph-img": "url('/images/ralph.png')",
+        "space-img": "url('/images/space.png')",
       },
       colors: {
         "accent-1": "#FAFAFA",

@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
-import { CMS_NAME } from "@/lib/constants";
+import { SITENAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
-import Alert from "@/app/_components/alert";
 import Container from "@/app/_components/container";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
 import Navigation from '@/components/Navigation';
+import Footer from "@/components/Footer";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -24,17 +24,11 @@ export default async function Post(props: Params) {
       <Navigation />
       <Container>
         <article className="mx-auto prose lg:prose-lg max-w-4xl md:py-8 px-4 mb-32">
-          {/* <PostHeader
-            title={post.title}
-            coverImage={post.featuredImage}
-            date={post.date}
-            author={post.author}
-          /> */}
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-
           <PostBody content={content} />
         </article>
       </Container>
+      <Footer />
     </main>
   );
 }
@@ -52,7 +46,7 @@ export async function generateMetadata(props: Params): Promise<Metadata> {
     return notFound();
   }
 
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
+  const title = `${post.title} | ${SITENAME}`;
 
   return {
     title,

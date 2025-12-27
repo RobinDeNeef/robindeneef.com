@@ -1,10 +1,9 @@
 "use client"
 import Block from "./Block";
-import { FiArrowRight } from 'react-icons/fi';
 import { motion } from 'motion/react';
 import { useState } from "react";
 
-const HeaderBlock = ({ className, children, ...rest }) => {
+const BlockHeader = ({ className, children, ...rest }) => {
   const [egg, setEgg] = useState(0);
 
   const eggc = () => {
@@ -55,4 +54,4 @@ const HeaderBlock = ({ className, children, ...rest }) => {
   )
 }
 
-export default HeaderBlock;
+export default BlockHeader;

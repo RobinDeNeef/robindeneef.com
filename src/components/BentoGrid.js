@@ -3,15 +3,17 @@ import Block from "./Block";
 import BlockWithIcon from "./BlockWithIcon";
 import { FiArrowRight } from 'react-icons/fi';
 import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
-import HeaderBlock from "./HeaderBlock";
+import BlockHeader from "@/components/BlockHeader";
+import BlockEscapeVelocity from "@/components/BlockEscapeVelocity";
 
 
 const BentoGrid = ({ posts }) => {
   return (
-    <div className="min-h-screen px-4 md:py-12 text-zinc-50">
+    <div className="px-4 md:py-12 text-zinc-50">
       <div className="mx-auto grid max-w-4xl grid-flow-dense grid-cols-12 gap-4 lg:max-w-screen-lg">
-        <HeaderBlock />
+        <BlockHeader />
         <SocialBlock />
+        <BlockEscapeVelocity />
         <BlockWithIcon
           title={"Newsletter"}
           icon={"📨"}

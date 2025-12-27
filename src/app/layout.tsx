@@ -1,17 +1,19 @@
-import Footer from "@/components/Footer";
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
+import { SITENAME, SITE_DESCRIPTION, SITE_URL, HOME_OG_IMAGE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
-import { ThemeSwitcher } from "./_components/theme-switcher";
+import PlausibleProvider from 'next-plausible'
+
+// import { ThemeSwitcher } from "./_components/theme-switcher";
 
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `Next.js Blog Example with ${CMS_NAME}`,
-  description: `A statically generated blog example using Next.js and ${CMS_NAME}.`,
+  metadataBase: new URL(SITE_URL),
+  title: SITENAME,
+  description: SITE_DESCRIPTION,
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
   },
@@ -23,9 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <PlausibleProvider domain="robindeneef.com">
+
     <html lang="en">
       <head>
-        <link
+        {/* <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/favicon/apple-touch-icon.png"
@@ -47,7 +51,7 @@ export default function RootLayout({
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
           color="#000000"
-        />
+        /> */}
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta
@@ -60,10 +64,10 @@ export default function RootLayout({
       <body
         className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
       >
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */}
         <div className="min-h-screen">{children}</div>
-        <Footer />
       </body>
     </html>
+    </PlausibleProvider>
   );
 }
