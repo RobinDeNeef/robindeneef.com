@@ -1,4 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+  /* Colors */
+  --color-accent-1: #FAFAFA;
+  --color-accent-2: #EAEAEA;
+  --color-accent-7: #333;
+  --color-success: #0070f3;
+  --color-cyan: #79FFE1;
+
+  /* Spacing */
+  --spacing-28: 7rem;
+
+  /* Font Sizes */
+  --font-size-5xl: 2.5rem;
+  --font-size-6xl: 2.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6.25rem;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.04em;
+
+  /* Box Shadows */
+  --shadow-sm: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  /* Background Images */
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
+  --background-image-profile-img: url('/images/profile.png');
+  --background-image-ralph-img: url('/images/ralph.png');
+  --background-image-space-img: url('/images/space.png');
+}
