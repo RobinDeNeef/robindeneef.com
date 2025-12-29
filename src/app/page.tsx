@@ -1,21 +1,22 @@
 import Navigation from "@/components/Navigation";
 import BentoGrid from "@/components/BentoGrid";
+import { getAllPosts } from "@/lib/api";
 import Footer from "@/components/Footer";
-import { getLastNPosts } from "@/utils/mdxUtils";
 
 
 
 export default function Home() {
-  const posts = getLastNPosts(3);
+  const posts = getAllPosts().slice(0, 3);
 
   return (
-    <div className="bg-zinc-50">
+    <div>
       <Navigation />
 
       <main className="">
         <BentoGrid posts={posts}/>
       </main>
-      <Footer/>
+      <Footer />
+
     </div>
   );
 }
